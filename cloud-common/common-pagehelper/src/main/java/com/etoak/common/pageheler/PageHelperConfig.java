@@ -1,4 +1,4 @@
-package com.etoak.common.config;
+package com.etoak.common.pageheler;
 
 import com.github.pagehelper.PageInterceptor;
 import org.springframework.context.annotation.Bean;

@@ -13,6 +13,7 @@
         <module>cloud-model</module>
         <module>cloud-modules</module>
         <module>cloud-gateway</module>
+        <module>cloud-common/common-pagehelper</module>
     </modules>
 
     <properties>
@@ -47,6 +48,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.etoak.et2601.dishes</groupId>
+                <artifactId>common-pagehelper</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>com.etoak.et2601.dishes</groupId>
                 <artifactId>cloud-model</artifactId>
