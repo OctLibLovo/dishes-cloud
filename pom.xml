@@ -16,8 +16,8 @@
     </modules>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- 自定义版本号 -->
         <!-- Spring Cloud 2025.1.0 -->
@@ -29,7 +29,7 @@
         <!-- druid starter-->
         <druid.version>1.2.28</druid.version>
         <!-- pagehelper starer -->
-        <pagehelper.version>4.0.0</pagehelper.version>
+        <pagehelper.version>6.1.1</pagehelper.version>
         <!-- hutool-all -->
         <hutool.version>5.8.34</hutool.version>
         <!-- commons-collections4 -->
@@ -101,7 +101,7 @@
 
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
-                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
             </dependency>
 

@@ -1,14 +1,14 @@
 package com.etoak.system.controller;
 
+import com.etoak.common.vo.PageVO;
 import com.etoak.common.vo.ResultVO;
 import com.etoak.system.entity.Ingredients;
 import com.etoak.system.service.IngredientsService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/ingredients")
@@ -24,4 +24,18 @@ public class IngredientsController {
         ingredientsService.add(ingredients);
         return ResultVO.success();
     }
+
+    /**
+     * 分页查询 get /ingredients/list
+     */
+    @GetMapping("/list")
+    public ResultVO<PageVO<Ingredients>> listPage(
+            @RequestParam(required = false, defaultValue = "1") int pageNum,
+            @RequestParam(required = false, defaultValue = "1") int pageSize,
+            Ingredients ingredients) {
+        PageVO<Ingredients> pageVO = ingredientsService.listPage(pageNum, pageSize, ingredients);
+        return ResultVO.success(pageVO);
+
+    }
+
 }
