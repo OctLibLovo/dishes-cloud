@@ -20,7 +20,7 @@ public class IngredientsController {
      * 添加食材接口 post /ingredients
      */
     @PostMapping
-    public ResultVO<Object> add(@Valid @RequestBody Ingredients ingredients) {
+    public ResultVO<Object> add(@Valid @RequestBody Ingredients ingredients){
         ingredientsService.add(ingredients);
         return ResultVO.success();
     }
@@ -38,7 +38,7 @@ public class IngredientsController {
     }
 
     @PostMapping("/{id}")
-    public ResultVO<Object> update(@PathVariable Integer id, @Valid @RequestBody Ingredients ingredients) {
+    public ResultVO<Object> update(@PathVariable Integer id, @Valid @RequestBody Ingredients ingredients){
         ingredientsService.update(id, ingredients);
         return ResultVO.success();
     }
