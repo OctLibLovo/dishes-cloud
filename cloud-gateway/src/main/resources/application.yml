@@ -1,0 +1,28 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: gateway
+
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: et2601
+      config:
+        namespace: et2601
+    gateway:
+      server:
+        webflux:
+          globalcors:
+            cors-configurations:
+              '[/**]':
+                allowedOrigins: "*"
+                allowedMethods: "*"
+                max-age: 3600
+                allowed-headers: "*"
+  config:
+    import:
+      - nacos:${spring.application.name}.yml
+      - nacos:upload-service.yml
