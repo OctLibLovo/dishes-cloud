@@ -35,7 +35,12 @@ public class IngredientsController {
             Ingredients ingredients) {
         PageVO<Ingredients> pageVO = ingredientsService.listPage(pageNum, pageSize, ingredients);
         return ResultVO.success(pageVO);
+    }
 
+    @PostMapping("/{id}")
+    public ResultVO<Object> update(@PathVariable Integer id, @Valid @RequestBody Ingredients ingredients){
+        ingredientsService.update(id, ingredients);
+        return ResultVO.success();
     }
 
 }
