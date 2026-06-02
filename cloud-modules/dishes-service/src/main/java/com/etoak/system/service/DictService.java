@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface DictService extends IService<Dict> {
     List<Dict> getList(String type);
+
+
 }

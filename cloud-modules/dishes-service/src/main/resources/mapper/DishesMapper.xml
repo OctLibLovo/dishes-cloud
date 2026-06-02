@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etoak.system.mapper.DishesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.etoak.system.entity.Dishes">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="url" property="url" />
+        <result column="main" property="main" />
+        <result column="main_num" property="mainNum" />
+        <result column="minor" property="minor" />
+        <result column="minor_num" property="minorNum" />
+        <result column="seasoning" property="seasoning" />
+        <result column="seasoning_num" property="seasoningNum" />
+        <result column="description" property="description" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, url, main, main_num, minor, minor_num, seasoning, seasoning_num, description, create_time, update_time
+    </sql>
+    <sql id="list_sql">
+        SELECT t.id,
+               t.name,
+               t.url,
+               t.main,
+               t.main_num,
+               main.name as main_name,
+               t.minor,
+               t.minor_num,
+               minor.name as minor_name,
+               t.seasoning,
+               t.seasoning_num,
+               seasoning.name as seasoning_name,
+               t.description,
+               t.create_time,
+               t.update_time
+        from t_dishes t
+                 left join (select * from t_ingredients where type = '1') main on main.id = t.main
+                 left join (select * from t_ingredients where type = '2') minor on minor.id = t.minor
+                 left join (select * from t_ingredients where type = '3') seasoning on seasoning.id = t.seasoning
+
+    </sql>
+    <select id="getList" parameterType="com.etoak.system.entity.Dishes" resultType="com.etoak.system.vo.DishesVO">
+        <include refid="list_sql"></include>
+        <where>
+            <if test="name != null and name != ''">
+                and t.name like concat(#{name}, '%')
+            </if>
+            <if test="main != null">
+                and t.main = #{mian}
+            </if>
+            <if test="minor != null">
+                and t.minor = #{minor}
+            </if>
+            <if test="seasoning != null">
+                and t.seasoning = #{seasoning}
+            </if>
+        </where>
+    </select>
+</mapper>

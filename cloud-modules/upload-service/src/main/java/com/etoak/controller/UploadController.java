@@ -61,6 +61,6 @@ public class UploadController {
                 : properties.getPrefix() + StrUtil.SLASH + newName;
 
 
-        return ResultVO.success();
+        return ResultVO.success(result);
     }
 }
