@@ -54,4 +54,15 @@ public class IngredientsController {
         ingredientsService.delete(id);
         return ResultVO.success();
     }
+
+    /**
+     * 根据食材类型查询食材列表
+     */
+    @GetMapping("/listByType")
+    public ResultVO<List<Ingredients>> listByType(@RequestParam String type){
+        Ingredients ingredients = new Ingredients();
+        ingredients.setType(type);
+        List<Ingredients> ingredientsList = ingredientsService.getList(ingredients);
+        return ResultVO.success(ingredientsList);
+    }
 }
