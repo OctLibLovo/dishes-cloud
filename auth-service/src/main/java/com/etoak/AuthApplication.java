@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.etoak.**,mapper")
+@MapperScan(basePackages = "com.etoak.system.**.mapper")
 @Transactional
 public class AuthApplication {
     public static void main(String[] args) {

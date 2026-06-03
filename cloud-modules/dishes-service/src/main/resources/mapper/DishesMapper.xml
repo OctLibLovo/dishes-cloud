@@ -51,7 +51,7 @@
                 and t.name like concat(#{name}, '%')
             </if>
             <if test="main != null">
-                and t.main = #{mian}
+                and t.main = #{main}
             </if>
             <if test="minor != null">
                 and t.minor = #{minor}
