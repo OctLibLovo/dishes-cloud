@@ -12,4 +12,9 @@ public class CommonConstant {
     public static final String LOGIN_USERNAME = "username";
 
     public static final String LOGIN_USER_ID = "id";
+
+    /**
+     * 购物车 redis key 前缀
+     */
+    public static final String CART_KEY_PREFIX = "cart:user:";
 }

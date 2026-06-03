@@ -49,7 +49,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             throw new ParamException("用户名或密码错误！");
         }
 
-        // TODO 生成token
         Map<String,Object> claimsMap = new HashMap<>();
         claimsMap.put(CommonConstant.LOGIN_USERNAME, user.getUsername());
         claimsMap.put(CommonConstant.LOGIN_USER_ID, user.getId());
