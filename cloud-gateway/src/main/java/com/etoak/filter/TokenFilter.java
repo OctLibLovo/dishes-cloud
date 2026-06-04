@@ -8,6 +8,7 @@ import com.etoak.properties.WhiteListProperties;
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.core5.http.HttpHeaders;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.io.buffer.DataBuffer;
@@ -17,16 +18,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import java.nio.charset.StandardCharsets;
 
 @Service
 @Slf4j
 public class TokenFilter implements GlobalFilter {
-    private final WhiteListProperties whiteListProperties;
+    @Autowired
+    WhiteListProperties whiteListProperties;
 
-    public TokenFilter(WhiteListProperties whiteListProperties) {
-        this.whiteListProperties = whiteListProperties;
-    }
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {

@@ -35,7 +35,7 @@ public class CartController {
     }
 
     /**
-     * 刹车农户 菜品
+     * 删除购物车 菜品
      * @param ids 要删除的菜品的id
      * @return ResultVO
      */

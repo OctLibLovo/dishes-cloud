@@ -1,0 +1,16 @@
+server:
+  port: 9005
+
+spring:
+  application:
+    name: cancel-service
+  config:
+    import: nacos:order-service.yml
+
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: et2601
+      config:
+        namespace: et2601
