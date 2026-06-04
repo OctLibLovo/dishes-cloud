@@ -9,6 +9,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * <p>
  * DishesController
@@ -55,6 +57,12 @@ public class DishesController {
     public ResultVO<Object> delete(int id) {
         dishesService.delete(id);
         return ResultVO.success();
+    }
+
+    @GetMapping("/{ids}")
+    public ResultVO<List<DishesVO>> listByIds(@PathVariable List<Integer> ids) {
+        List<DishesVO> dishesVOList = dishesService.getByIds(ids);
+        return ResultVO.success(dishesVOList);
     }
 }
 

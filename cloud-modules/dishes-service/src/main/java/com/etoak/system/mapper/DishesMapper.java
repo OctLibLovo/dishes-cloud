@@ -15,5 +15,13 @@ import java.util.List;
  * @since 2026-06-02
  */
 public interface DishesMapper extends BaseMapper<Dishes> {
+
+    /**
+     * 查询表菜品列表
+     * @param dishes 菜品查询参数
+     * @return
+     */
     List<DishesVO> getList(Dishes dishes);
+
+    List<DishesVO> listByIds(List<Integer> ids);
 }

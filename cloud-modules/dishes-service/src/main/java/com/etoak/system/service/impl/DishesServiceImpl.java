@@ -73,6 +73,11 @@ public class DishesServiceImpl extends ServiceImpl<DishesMapper, Dishes> impleme
         this.removeById(id);
     }
 
+    @Override
+    public List<DishesVO> getByIds(List<Integer> ids) {
+        return baseMapper.listByIds(ids);
+    }
+
     private Dishes getByName(String dishesName){
         return lambdaQuery().eq(Dishes::getName, dishesName).one();
     }

@@ -61,4 +61,12 @@
             </if>
         </where>
     </select>
+
+    <select id="listByIds" parameterType="list" resultType="com.etoak.system.vo.DishesVO">
+        <include refid="list_sql"></include>
+        where t.id in
+        <foreach collection="list" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
 </mapper>

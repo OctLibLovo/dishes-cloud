@@ -9,10 +9,4 @@ import java.util.List;
 
 public interface DictMapper extends BaseMapper<Dict> {
 
-    /**
-     * 查询表菜品列表
-     * @param dishes 菜品查询参数
-     * @return
-     */
-
 }

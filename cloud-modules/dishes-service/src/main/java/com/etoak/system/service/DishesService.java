@@ -46,4 +46,12 @@ public interface DishesService extends IService<Dishes> {
      */
     void delete(int id);
 
+    /**
+     * 根据菜品id列表查询菜品列表
+     *
+     * @param ids 菜品id列表
+     * @return 菜品列表
+     */
+    List<DishesVO> getByIds(List<Integer> ids);
+
 }
